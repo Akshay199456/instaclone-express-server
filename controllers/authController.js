@@ -6,11 +6,7 @@ const User = require("../models/user");
 // Small change for testing
 
 router.get('/',  async (req, res) => {
-	console.log('getting called')
 	const foundUser = await User.findOne({username: req.session.username});
-	console.log("Found User??? ", foundUser);
-
-	console.log('===================', 'this is my session id', req.session.userId);
 	res.json({
 		user: foundUser
 	});
